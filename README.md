@@ -25,12 +25,12 @@ This is a solution to the [Launch countdown timer challenge hub](https://www.fro
 
 ### Screenshot
 
-![screenshoot-Tipcalculator.png](https://github.com/sweeplanet/tipCalculator/blob/main/images/screenshoot-Tipcalculator.png)
+![screenshoot-Countdown_page.png](https://github.com/sweeplanet/countdown_page/blob/main/images/countown.png)
 
 ### Links
 
-- Solution URL: [Tipcalculator](https://github.com/sweeplanet/tipCalculator)
-- Live Site URL: [Tipcalculator](https://sweeplanet.github.io/tipCalculator/)
+- Solution URL: [Countdown_Page](https://github.com/sweeplanet/countdown_page)
+- Live Site URL: [Countdown_Page](https://sweeplanet.github.io/countdown_page/)
 
 ## My process
 
