@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+  <title>Frontend Mentor | Launch countdown timer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@700&display=swap" rel="stylesheet">
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <main class="container">
+    <h1>We're launching soon</h1>
+    <div class="countdown">
+      <!-- El elemento HTML <figure> representa contenido independiente, a menudo con un título.
+      Si bien se relaciona con el flujo principal, su posición es independiente de éste.
+      Por lo general, se trata de una imagen, una ilustración, un diagrama, un fragmento de código,
+      o un esquema al que se hace referencia en el texto principal, pero que se puede mover a otra página o a un
+      apéndice sin que afecte al flujo principal. -->
+      <figure id="dias" class="flip-clock flip-clock-dias">
+        <div class="card">
+          <div class="card_cutout"></div>
+          <div class="card-face card-face_front cutout"></div>
+          <div class="card-face card-face_back cutout"></div>
+        </div>
+        <!-- El elemento HTML <figcaption>  representa un subtítulo o leyenda asociado al contenido del elemento padre
+        <figure>, pudiendo ser colocado como primer o último hijo. Es importante destacar que el elemento <figcaption>
+        es opcional. -->
+        <figcaption class="flip-clock-caption">Dias</figcaption>
+      </figure>
+
+      <figure id="horas" class="flip-clock flip-clock-horas">
+        <div class="card">
+          <div class="card_cutout"></div>
+          <div class="card-face card-face_front cutout"></div>
+          <div class="card-face card-face_back cutout"></div>
+        </div>
+        <!-- El elemento HTML <figcaption>  representa un subtítulo o leyenda asociado al contenido del elemento padre
+        <figure>, pudiendo ser colocado como primer o último hijo. Es importante destacar que el elemento <figcaption>
+        es opcional. -->
+        <figcaption class="flip-clock-caption">Horas</figcaption>
+      </figure>
+
+      <figure id="minutos" class="flip-clock flip-clock-minutos">
+        <div class="card">
+          <div class="card_cutout"></div>
+          <div class="card-face card-face_front cutout"></div>
+          <div class="card-face card-face_back cutout"></div>
+        </div>
+        <!-- El elemento HTML <figcaption>  representa un subtítulo o leyenda asociado al contenido del elemento padre
+        <figure>, pudiendo ser colocado como primer o último hijo. Es importante destacar que el elemento <figcaption>
+        es opcional. -->
+        <figcaption class="flip-clock-caption">Minutos</figcaption>
+      </figure>
+
+      <figure id="segundos" class="flip-clock flip-clock-segundos">
+        <div class="card">
+          <div class="card_cutout"></div>
+          <div class="card-face card-face_front cutout"></div>
+          <div class="card-face card-face_back cutout"></div>
+        </div>
+        <!-- El elemento HTML <figcaption>  representa un subtítulo o leyenda asociado al contenido del elemento padre
+        <figure>, pudiendo ser colocado como primer o último hijo. Es importante destacar que el elemento <figcaption>
+        es opcional. -->
+        <figcaption class="flip-clock-caption">Segundos</figcaption>
+      </figure>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+      Coded by <a href="#">Daniel Moreno</a>.
+    </div>
+  </footer>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="timer.js"></script>
+</body>
+
+</html>

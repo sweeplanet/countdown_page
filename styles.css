@@ -1,0 +1,257 @@
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+body{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-image: url(./images/pattern-hills.svg), url(./images/bg-stars.svg), linear-gradient(to bottom, hsl(234, 17%, 12%), hsl(235, 16%, 14%), hsl(236, 21%, 26%));
+  background-attachment: fixed;
+  background-size: auto;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  font-size: 16px;
+  font-family: 'Red Hat Text', sans-serif;
+  text-align: center;
+}
+
+.footer{
+  position: relative;
+  margin-top: 160px;
+}
+
+/*Flexbox layout is most appropriate to the components of an application, and small-scale layouts,
+while the Grid layout is intended for larger scale layouts.*/
+
+.container {
+  display: flex;
+  /* align-items — controla la alineación de todos los elementos en el eje transversal. */
+  align-items: center;
+  /*justify-content — controla la alineación de todos los elementos en el eje principal.*/
+  justify-content: center;
+  /* This establishes the main-axis, thus defining the direction flex items are placed in the flex container.*/
+  flex-direction: column;
+  margin: 5.1rem 0 auto;
+  padding: 0 2.4rem;
+}
+
+.container h1{
+  text-transform: uppercase;
+  color: white;
+  font-size: 20px;
+  letter-spacing: 5px;
+}
+
+.countdown {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row; /*Default. Lo pongo para saber que va así*/
+  margin-top: 50px;
+}
+
+.flip-clock {
+  color: #fb6087;
+  /* La propiedad  CSS line-height establece la altura de una casilla remarcada por líneas.
+  Comúnmente se usa para establecer la distancia entre líneas de texto. A nivel de elementos de bloque, define la altura mínima
+  de las casillas encuadradas por líneas dentro del elemento */
+  line-height: 0;
+  width: 120px;
+  height: 130px;
+  display: flex;
+  position: relative;
+  /* Give a 3D-positioned element some perspective: */
+  perspective: 350px;
+  border-radius: 7px;
+  /* La propiedad CSS box-shadow  añade efectos de sombra alrededor del marco de un elemento.
+  Se pueden definir múltiples efectos separados por comas
+  offset-x | offset-y | blur-radius | color
+  Los offset definen el desplazamiento de la sombra, el -x- especifica la distancia horizontal y el -y- la vertical.
+  El blur-radius especifica la difuminación- Cuando mayor sea este valor, mayor sera la difuminación, por
+  consecuencia la sombra se vuelve más grande y ligera.*/
+  box-shadow: 0 0.14rem 0 #191a24;
+  font-size: 60px;
+}
+
+/* La pseudo-class :last-of-type de CSS representa el último elemento de su tipo entre un grupo de elementos hermanos. */
+/* La pseudoclase :not() de CSS representa elementos que no coinciden con una lista de selectores. Como evita que se seleccionen elementos específicos, se lo conoce como la pseudoclase de negación. */
+/*Por lo tanto la siguiente definición indica que se modifique el margen derecho de cualquier elemento flip-clock menos el último*/
+.flip-clock:not(:last-of-type) {
+  margin-right: 10px;
+}
+
+.flip-clock::before, .flip-clock::after {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #343650;
+  position: absolute;
+  /* El elemento se colocora debajo de algun otro si le ponemos el z-index igual a 1 a ese otro elemento */
+  z-index: 0;
+  width: 100%;
+  height: 50%;
+  /* Si el contenido traspasa el cuadro sobre el que esta enmarcado se oculta el contenido sobrepasado */
+  overflow: hidden;
+  border: 1px solid #191a24;
+}
+
+/*Los pseudo-elementos se añaden a los selectores, pero en cambio, no describen un estado especial sino que,
+permiten añadir estilos a una parte concreta del documento. Se identifican con los dobles puntos "::"*/
+/*En CSS, ::before crea un pseudoelemento que es el primer hijo del elemento seleccionado.
+Es usado normalmente para añadir contenido estético a un elemento, usando la propiedad content.
+Este elemento se muestra en línea con el texto de forma predeterminada.*/
+.flip-clock::before {
+  /*La función attr() de CSS se usa para recuperar el valor de un atributo del elemento seleccionado y
+  usarlo en la hoja de estilos.*/
+  content: attr(data-current-number);
+  bottom: 0;
+  /* flex-start (default): items are packed toward the start of the flex-direction. */
+  align-items: flex-start;
+  /* Con calc() puedes realizar cálculos para determinar valores de propiedades CSS.
+  vw -> Relative to 1% of the width of the viewport */
+  border-radius: 0 0 calc(0.25vw + 0.4rem) calc(0.25vw + 0.4rem);
+  border-top: none;
+}
+
+.flip-clock::after {
+  /*La función attr() de CSS se usa para recuperar el valor de un atributo del elemento seleccionado y
+  usarlo en la hoja de estilos.*/
+  content: attr(data-next-number);
+  top: 0;
+  /*flex-end: items are packed toward the end of the flex-direction.*/
+  align-items: flex-end;
+  border-radius: calc(0.25vw + 0.4rem) calc(0.25vw + 0.4rem) 0 0;
+  border-bottom: none;
+  background-color: #2d2f45;
+  color: #fb567f;
+}
+
+.flip-clock > * {
+  /*Esto indica que para todos los elementos dentro de flip-clock aplica que el cursor que se muestra sea el
+  de por defecto y que no se pueda seleccionar el texto que aparezca dentro de este elemento*/
+  cursor: default;
+  user-select: none;
+}
+
+/*El título*/
+.flip-clock-caption {
+  /*The clamp() CSS function clamps a value between an upper and lower bound. clamp() enables selecting a middle value within
+  a range of values between a defined minimum and maximum. It takes three parameters: a minimum value, a preferred value,
+  and a maximum allowed value.*/
+  font-size: clamp(0.7rem, 1vw, 1.4rem);
+  color: #8486a9;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  text-align: center;
+  width: 100%;
+  position: absolute;
+  /*Se va a salir por debajo del contenedor al tener la posicion negativa*/
+  bottom: calc(-1.56rem - 1vw);
+}
+
+.card {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 50%;
+  transform-style: preserve-3d;
+  transform-origin: bottom;
+  /* Permite girar un elemento */
+  transform: rotateX(0);
+  /* CSS transitions allows you to change property values smoothly, over a given duration.
+  easy-in: specifies a transition effect with a slow start
+  transform permite el giro del rotate especificado arriba*/
+  transition: transform 0.7s ease-in;
+}
+
+/*Esta nueva clase .flipped se añade desde javascript*/
+.card.flipped {
+    transform: rotateX(-180deg);
+}
+
+.card-face {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-items: unset;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  backface-visibility: hidden;
+}
+
+.card-face_front,
+.card-face_back {
+  background-color: #343650;
+  border: 1px solid #191a24;
+}
+
+.card-face_front {
+  align-items: flex-end;
+  border-radius: calc(0.25vw + 0.4rem) calc(0.25vw + 0.4rem) 0 0;
+  border-bottom: none;
+  background-color: #2d2f45;
+  color: #fb567f;
+}
+
+.card-face_back {
+  align-items: flex-start;
+  transform: rotateX(180deg);
+  border-radius: 0 0 calc(0.25vw + 0.4rem) calc(0.25vw + 0.4rem);
+  border-top: none;
+
+}
+
+.cutout,
+.card_cutout {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.cutout::before, .cutout::after,
+.card_cutout::before,
+.card_cutout::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  width: 0.15em;
+  height: 0.15em;
+  transform: translateY(50%);
+  background-color: #191a24;
+}
+
+.cutout::before,
+.card_cutout::before {
+  left: 0;
+  clip-path: circle(50% at 0 50%);
+}
+
+.cutout::after,
+.card_cutout::after {
+  right: 0;
+  clip-path: circle(50% at 100% 50%);
+}
+
+.card-face_back.cutout::before, .card-face_back.cutout::after {
+  bottom: unset;
+  top: 0;
+  transform: translateY(-50%);
+}
+
+
+/*prueba colores
+- Grayish blue: hsl(237, 18%, 59%)
+- Soft red: hsl(345, 95%, 68%)
+- White: hsl(0, 0%, 100%)
+- Dark desaturated blue: hsl(236, 21%, 26%)
+- Very dark blue: hsl(235, 16%, 14%)
+- Very dark (mostly black) blue: hsl(234, 17%, 12%)*/
